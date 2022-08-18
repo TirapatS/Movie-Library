@@ -2,8 +2,9 @@ import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import navBg from '../assets/scss/Navbar.scss'
+import source from '../assets/scss/Navbar.scss'
 
 
 const Navigation = () => {
@@ -11,7 +12,10 @@ const Navigation = () => {
 	return (
         <Navbar collapseOnSelect expand="lg" variant="dark" className="navBg">
         <Container>
-          <Navbar.Brand as={Link} to="/"><h2>Movie Library</h2></Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            <h2 className="mb-0">Movie Library</h2>
+            <p className="source">sourced by TMDB</p>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
             <Nav>
