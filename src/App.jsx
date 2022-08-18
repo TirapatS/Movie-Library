@@ -2,9 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import Navigation from './components/Navigation'
+import Navigation from './components/Navbar'
 import './assets/scss/App.scss'
-
 
 function App() {
     return (
