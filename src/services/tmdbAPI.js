@@ -1,40 +1,41 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://www.themoviedb.org/3/'
 
-const getMovies = async (endpoint) => {
-    const res = await axios.get(endpoint) + "?api_key=" + process.env.REACT_APP_API_KEY + "&include_adult=false" + "&append_to_response=images"
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
+const API_ACCESS = "?api_key=" + process.env.REACT_APP_API_KEY
 
-    return res.data
-}
+const get = async (endpoint) => {
+	const res = await axios.get(endpoint)
 
-const getPeople = async (endpoint) => {
-    const res = await axios.get(endpoint) + "?api_key=" + process.env.REACT_APP_API_KEY + "&append_to_response=images"
-
-    return res.data
+	return res.data
 }
 
 const getLatestMovies = () => {
-    return getMovies('movie/latest')
+    return get('movie/latest' + API_ACCESS + "&include_adult=false" + "&append_to_response=images")
 }
 
 const getPopularMovies = () => {
-    return getMovies('movie/popular')
+    return get('movie/popular' + API_ACCESS + "&include_adult=false" + "&append_to_response=images")
 }
 
 const getTopRatedMovies = () => {
-    return getMovies('movie/top_rated')
+    return get('movie/top_rated' + API_ACCESS + "&include_adult=false" + "&append_to_response=images")
 }
 
 const getPopularPeoples = () => {
-    return getPeople('person/popular')
+    return get('person/popular' + API_ACCESS + "&append_to_response=images")
+}
+
+const getGenres = /* async */ () => {
+    return get('genre/movie/list' + API_ACCESS)
 }
 
 const exports = {
     getLatestMovies,
     getPopularMovies,
     getTopRatedMovies,
-    getPopularPeoples
+    getPopularPeoples,
+    getGenres
 }
 
 export default exports

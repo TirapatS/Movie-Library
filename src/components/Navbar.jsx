@@ -29,6 +29,7 @@ const Navigation = () => {
               <NavDropdown title="Peoples" id="collasible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/popular-movies">Popular Peoples</NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link as={Link} to="/genres">Genres</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
