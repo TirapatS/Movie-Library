@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
-import {welcomeTextContainer, welcomeText} from '../assets/scss/WelcomePage.scss'
+import {welcomeTextContainer, welcomeText} from '../assets/css/WelcomePage.css'
 
 
 function HomePage() {

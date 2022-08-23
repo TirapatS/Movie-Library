@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import GenrePage from './pages/GenrePage'
 import Navigation from './components/Navbar'
-import './assets/scss/App.scss'
+import './assets/css/App.css'
 
 
 function App() {

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 
 function GenrePage() {
 
-    const { data, error, isError, isLoading } = useQuery('genre', tmdbAPI.getGenres)
+    const { data, isError, isLoading } = useQuery('genre', tmdbAPI.getGenres)
     console.log("got data", data)
    
 
@@ -18,7 +18,7 @@ function GenrePage() {
 
         {/* Make it cooler 😎 */}
         {data?.genres && (
-           <ul>
+           <ul className="listContainer">
             {data.genres.map(genre => (
                 <li key={genre.id}>{genre.name}</li>
             ))}

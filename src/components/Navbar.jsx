@@ -3,8 +3,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Link } from 'react-router-dom'
-import navBg from '../assets/scss/Navbar.scss'
-import source from '../assets/scss/Navbar.scss'
+import '../assets/css/Navbar.css'
+
 
 
 const Navigation = () => {
