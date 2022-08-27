@@ -5,8 +5,9 @@ import tmdbAPI from '../services/tmdbAPI'
 import PeopleList from '../components/PeopleList'
 
 function PopularPeoplePage() {
-    const { data: peoples, isError,error, isLoading } = useQuery('popularPeoples', tmdbAPI.getPopularPeoples)
-    console.log("data", peoples)
+  
+  const { data: peoples, isError,error, isLoading } = useQuery('popularPeoples', tmdbAPI.getPopularPeoples)
+
   return (
     <>
        <Container className="mb-5">

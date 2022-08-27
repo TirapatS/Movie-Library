@@ -10,8 +10,7 @@ function ProfilePage() {
 
     const { id } = useParams()
     const {data: people, error, isError, isLoading } = useQuery(['people', id], () => tmdbAPI.getProfile(id))
-    console.log("data", people)
-
+    
     return (
         <>
             {isLoading && (<h6>Loading</h6>)}

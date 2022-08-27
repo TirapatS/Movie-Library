@@ -5,8 +5,8 @@ import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 
 function PopularMoviesPage() {
-    const { data: movies, isError,error, isLoading } = useQuery('popularMovies', tmdbAPI.getPopularMovies)
-    console.log("data", movies)
+  const { data: movies, isError,error, isLoading } = useQuery('popularMovies', tmdbAPI.getPopularMovies)
+
   return (
     <>
        <Container className="mb-5">

@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 import '../assets/css/List.css'
 
 const MovieList = ({data}) => {
-    if(!data) {
-      return <p>No Movies to be found</p>
-    }
+  if(!data) {
+    return <p>No Movies to be found</p>
+  }
 
   return (
     <>

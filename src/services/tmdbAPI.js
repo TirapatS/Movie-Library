@@ -42,18 +42,18 @@ const getGenres = async () => {
 }
 
 /* Get a list of movies based on Genre ID */
-const getDiscoverMovie = async (id) => {
-    return await get(`discover/movie/${id}` + API_ACCESS + "&with_genres")
+const getDiscover = async (id) => {
+    return await get("discover/movie" + API_ACCESS + `&with_genres=${id}` + "&include_adult=false")
 }
 
 /* get a movie */
 const getMovie = async (id) => {
-    return await get(`/movie/${id}` + API_ACCESS + "&append_to_response=credits" )
+    return await get(`movie/${id}` + API_ACCESS + "&append_to_response=credits" )
 }
 
 /* get profile for person */
 const getProfile = async (id) => {
-    return await get(`/person/${id}` + API_ACCESS + "&append_to_response=combined_credits")
+    return await get(`person/${id}` + API_ACCESS + "&append_to_response=combined_credits")
 }
 
 const exports = {
@@ -63,7 +63,7 @@ const exports = {
     getTopRatedMovies,
     getPopularPeoples,
     getGenres,
-    getDiscoverMovie,
+    getDiscover,
     getMovie,
     getProfile
 }

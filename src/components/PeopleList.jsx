@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom'
 import '../assets/css/List.css'
 
 const PeopleList = ({data}) => {
-    if(!data) {
-      return <p>No Peoples to be found</p>
-    }
-
-    console.log("data", data.results)
+  
+  if(!data) {
+    return <p>No Peoples to be found</p>
+  }
 
   return (
     <>

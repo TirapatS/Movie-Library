@@ -3,14 +3,16 @@ import Container from 'react-bootstrap/Container'
 import '../assets/css/HomePage.css'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
+import {useParams} from 'react-router-dom'
 
-function NowPlaying() {
-  const { data: movies, isError,error, isLoading } = useQuery('nowPlaying', tmdbAPI.getNowPlaying)
+function DiscoverPage() {
+  const { id } = useParams()
+  const { data: movies, isError, error, isLoading } = useQuery(['discover', id], () => tmdbAPI.getDiscover(id))
 
   return (
     <>
       <Container className="mb-5">
-        <h2>Now playing</h2>
+        <h2>Discover Movies</h2>
       </Container>
 
       {isLoading && (<p>Loading...</p>)}
@@ -23,4 +25,4 @@ function NowPlaying() {
   )
 }
 
-export default NowPlaying
+export default DiscoverPage

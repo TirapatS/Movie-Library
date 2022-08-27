@@ -1,14 +1,14 @@
 import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
 import { useQuery } from 'react-query'
-import ListGroup from 'react-bootstrap/ListGroup'
-import {Link} from 'react-router-dom'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import {Link, useParams} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 function GenrePage() {
-
-    const { data, isError, isLoading } = useQuery('genre', tmdbAPI.getGenres)
-    console.log("got data", data)
-   
+    
+  const { data: genres, isError, isLoading } = useQuery('genre', tmdbAPI.getGenres)   
 
   return (
     <Container className="my-5">
@@ -19,22 +19,24 @@ function GenrePage() {
 
           {isError && (<p>Error has occurred</p>)}
 
-          {data?.genres && (
-            <ListGroup>
-              {data.genres.map(genre => (
-                <ListGroup.Item
-                  action
-                  as={Link}
-                  key={genre.id}
-                  to={`/movies`}
-                  variant = "primary"
-                >
-                  <h4 className="my-2 text-center">{genre.name}</h4>
-
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          )}
+          <>
+          {genres && 
+            <Container>
+              <Row md={6} xs={2} className="g-4 text-center">
+                {genres?.genres && (
+                  genres.genres.map( genre => (
+                  <Col key={genre.id}>
+                      <Button  
+                        as={Link}
+                        to={`/discover/${genre.id}`}
+                      >{genre.name}</Button>
+                  </Col>
+                  ))
+                )}
+              </Row>
+            </Container>
+          }
+          </>
     </Container>
   )
 }
