@@ -2,25 +2,25 @@ import { useQuery } from 'react-query'
 import '../assets/css/HomePage.css'
 import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
-import MovieList from '../components/MovieList'
+import PeopleList from '../components/PeopleList'
 
-function PopularMoviesPage() {
-    const { data: movies, isError,error, isLoading } = useQuery('genre', tmdbAPI.getPopularMovies)
-    console.log("data", movies)
+function PopularPeoplePage() {
+    const { data: peoples, isError,error, isLoading } = useQuery('genre', tmdbAPI.getPopularPeoples)
+    console.log("data", peoples)
   return (
     <>
        <Container className="mb-5">
-        <h2>Popular Movies</h2>
+        <h2>Popular Peoples</h2>
         </Container>
 
       {isLoading && (<p>Loading...</p>)}
 
       {isError && (<p>Error has occurred: {error}</p>)}
       
-      {movies && <MovieList data={movies} />}
+      {peoples && <PeopleList data={peoples} />}
 
     </>
   )
 }
 
-export default PopularMoviesPage
+export default PopularPeoplePage

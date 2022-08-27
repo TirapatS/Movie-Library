@@ -5,24 +5,25 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import '../assets/css/List.css'
 
-const MovieList = ({data}) => {
+const PeopleList = ({data}) => {
     if(!data) {
-      return <p>No Movies to be found</p>
+      return <p>No Peoples to be found</p>
     }
+
+    console.log("data", data.results)
 
   return (
     <>
       <Row xs={2} md={6} className="g-1 justify-content-center">
         {data?.results && (
-            data.results.map(movie => (
-            <Card key={movie.id} className="mx-2 my-2">
-              <Card.Img variant="top" src={tmdbAPI.getImage(movie.poster_path)}/>
+            data.results.map(people => (
+            <Card key={people.id} className="mx-2 my-2">
+              <Card.Img variant="top" src={tmdbAPI.getImage(people.profile_path)}/>
               <Card.Body>
-                <Card.Title>{movie.original_title}</Card.Title>
-                <Card.Text>{movie.title}</Card.Text>
+                <Card.Title>{people.name}</Card.Title>
               </Card.Body>
               <Card.Footer>
-                <small className="text-muted">{movie.release_date}</small>
+                <small className="text-muted">{people.known_for_department}</small>
               </Card.Footer>
             </Card>
           ))
@@ -48,4 +49,4 @@ const MovieList = ({data}) => {
   )
 }
 
-export default MovieList
+export default PeopleList

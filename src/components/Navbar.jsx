@@ -21,7 +21,7 @@ const Navigation = () => {
               <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                 <Nav>
                   <NavDropdown title="Movies" id="collasible-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/latest-movies">Latest Movies</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/now-playing">Now Playing</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/popular-movies">
                       Popular Movies
                     </NavDropdown.Item>

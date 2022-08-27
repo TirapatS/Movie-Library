@@ -10,12 +10,13 @@ const get = async (endpoint) => {
 	return res.data
 }
 
-const getPoster = (endpoint) => {
+const getImage = (endpoint) => {
     return `https://image.tmdb.org/t/p/w500${endpoint}`
 }
 
-const getLatestMovies = () => {
-    return get('movie/latest' + API_ACCESS + "&include_adult=false" + "&page=1")
+
+const getNowPlaying = () => {
+    return get('movie/now_playing' + API_ACCESS + "&include_adult=false" + "&page=1")
 }
 
 const getPopularMovies = async () => {
@@ -39,8 +40,8 @@ const getDiscoverMovie = async (id) => {
 }
 
 const exports = {
-    getPoster,
-    getLatestMovies,
+    getImage,
+    getNowPlaying,
     getPopularMovies,
     getTopRatedMovies,
     getPopularPeoples,
