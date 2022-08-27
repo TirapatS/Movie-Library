@@ -1,15 +1,17 @@
 import tmdbAPI from '../services/tmdbAPI'
-import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
-import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import '../assets/css/List.css'
 
 const MovieList = ({data}) => {
+
+  /* if true, display data otherwise say this */
   if(!data) {
     return <p>No Movies to be found</p>
   }
+
+  console.log("data", data)
 
   return (
     <>
@@ -32,22 +34,6 @@ const MovieList = ({data}) => {
           ))
         )}
       </Row>
-
-      <Container>
-        <div className="d-flex justify-content-between mt-3 pageContainer">
-          <Button className="ml-5 px-4">
-            <p>Prev</p>
-          </Button>
-
-          <div id="pageCounter">
-            <h3>Page</h3>
-          </div>
-
-          <Button className="mr-5 px-4">
-            <p>Next</p>
-          </Button>
-        </div>
-      </Container>
     </>
   )
 }

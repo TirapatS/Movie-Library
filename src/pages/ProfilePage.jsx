@@ -17,7 +17,7 @@ function ProfilePage() {
 
             {isError && (<h6>{error}</h6>)}
 
-
+            {/* if true, display the person */}
             {people && 
              <Container className="cardContainer">
                     <div className="Card">

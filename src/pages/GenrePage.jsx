@@ -7,7 +7,7 @@ import {Link, useParams} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 function GenrePage() {
-    
+  
   const { data: genres, isError, isLoading } = useQuery('genre', tmdbAPI.getGenres)   
 
   return (
@@ -19,6 +19,7 @@ function GenrePage() {
 
           {isError && (<p>Error has occurred</p>)}
 
+          {/* Display all genres */}
           <>
           {genres && 
             <Container>

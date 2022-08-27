@@ -1,11 +1,16 @@
 import { useQuery } from 'react-query'
+import {useState} from 'react'
 import '../assets/css/HomePage.css'
 import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
+import Pagination from '../components/Pagination'
 
 function PopularMoviesPage() {
-  const { data: movies, isError,error, isLoading } = useQuery('popularMovies', tmdbAPI.getPopularMovies)
+  
+  const [activePage, setActivePage] = useState(1)
+
+  const { data: movies, isError,error, isLoading } = useQuery(['popularMovies', activePage], () => tmdbAPI.getPopularMovies(activePage))
 
   return (
     <>
@@ -19,6 +24,11 @@ function PopularMoviesPage() {
       
       {movies && <MovieList data={movies} />}
 
+      {movies && <Pagination 
+      data={movies} 
+      activePage={activePage} 
+      setActivePage={setActivePage}
+      />}
     </>
   )
 }

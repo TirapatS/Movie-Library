@@ -4,6 +4,7 @@ import '../assets/css/HomePage.css'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 import {useParams} from 'react-router-dom'
+import Pagination from '../components/Pagination'
 
 function DiscoverPage() {
   const { id } = useParams()
@@ -19,8 +20,10 @@ function DiscoverPage() {
 
       {isError && (<p>Error has occurred: {error}</p>)}
       
+      {/* if true, send data to component */}
       {movies && <MovieList data={movies} />}
 
+      <Pagination/>
     </>
   )
 }

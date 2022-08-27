@@ -17,23 +17,23 @@ const getImage = (endpoint) => {
 
 
 /* get list of now playing movies */
-const getNowPlaying = () => {
-    return get('movie/now_playing' + API_ACCESS + "&include_adult=false" + "&page=1")
+const getNowPlaying = async (page) => {
+    return get('movie/now_playing' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* get list of popular movies */
-const getPopularMovies = async () => {
-    return await get('movie/popular' + API_ACCESS + "&include_adult=false" + "&page=1")
+const getPopularMovies = async (page) => {
+    return await get('movie/popular' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* get list of top rated movies */
-const getTopRatedMovies = () => {
-    return get('movie/top_rated' + API_ACCESS + "&include_adult=false")
+const getTopRatedMovies = async (page) => {
+    return get('movie/top_rated' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* Get list popular peoples */
-const getPopularPeoples = () => {
-    return get('person/popular' + API_ACCESS)
+const getPopularPeoples = async (page) => {
+    return get('person/popular' + API_ACCESS + `&page=${page}`)
 }
 
 /* Get a list of genres */

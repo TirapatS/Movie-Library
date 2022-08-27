@@ -1,13 +1,12 @@
 import tmdbAPI from '../services/tmdbAPI'
-import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
-import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import '../assets/css/List.css'
 
 const PeopleList = ({data}) => {
   
+  /* if true, display data otherwise show this */
   if(!data) {
     return <p>No Peoples to be found</p>
   }
@@ -32,22 +31,6 @@ const PeopleList = ({data}) => {
           ))
         )}
       </Row>
-
-      <Container>
-        <div className="d-flex justify-content-between mt-3 pageContainer">
-          <Button className="ml-5 px-4">
-            <p>Prev</p>
-          </Button>
-
-          <div id="pageCounter">
-            <h3>Page</h3>
-          </div>
-
-          <Button className="mr-5 px-4">
-            <p>Next</p>
-          </Button>
-        </div>
-      </Container>
     </>
   )
 }

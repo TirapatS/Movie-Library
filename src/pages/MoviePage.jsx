@@ -18,7 +18,7 @@ function MoviePage() {
 
             {isError && (<h6>{error}</h6>)}
 
-
+            {/* if true, display the movie */}
             {movie && 
                 <Container>
                     <div className="cardContainer">
