@@ -8,6 +8,8 @@ import PopularMoviesPage from './pages/PopularMoviesPage'
 import NowPlayingPage from './pages/NowPlayingPage'
 import TopRatedPage from './pages/TopRatedPage'
 import PopularPeoplePage from './pages/PopularPeoplePage'
+import MoviePage from './pages/MoviePage'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
 				<Route path="/now-playing" element={<NowPlayingPage />} />
 				<Route path="/top-rated-movies" element={<TopRatedPage />} />
 				<Route path="/popular-peoples" element={<PopularPeoplePage />} />
+				<Route path="/movie/:id" element={<MoviePage />} />
+				<Route path="/people/:id" element={<ProfilePage />} />
 			</Routes>
 		</div>
 	)

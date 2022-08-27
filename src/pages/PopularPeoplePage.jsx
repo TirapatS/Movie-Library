@@ -5,7 +5,7 @@ import tmdbAPI from '../services/tmdbAPI'
 import PeopleList from '../components/PeopleList'
 
 function PopularPeoplePage() {
-    const { data: peoples, isError,error, isLoading } = useQuery('genre', tmdbAPI.getPopularPeoples)
+    const { data: peoples, isError,error, isLoading } = useQuery('popularPeoples', tmdbAPI.getPopularPeoples)
     console.log("data", peoples)
   return (
     <>

@@ -5,7 +5,7 @@ import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 
 function TopRatedPage() {
-    const { data: movies, isError,error, isLoading } = useQuery('genre', tmdbAPI.getTopRatedMovies)
+    const { data: movies, isError,error, isLoading } = useQuery('topRated', tmdbAPI.getTopRatedMovies)
     console.log("data", movies)
   return (
     <>

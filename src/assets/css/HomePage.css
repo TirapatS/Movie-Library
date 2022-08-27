@@ -5,19 +5,9 @@
     padding-top:10px;
     padding-bottom:10px;
     border-radius: 15px;
-    background-color: rgba(35, 97, 168, 0.699);
 }
 
 .textStyle {
     text-align: center;
-    color: white;
     margin: 0px;
-}
-
-.myLink {
-    cursor: pointer;
-}
-
-.myLink:hover{
-    background-color: rgba(31, 62, 98, 0.699);
 }

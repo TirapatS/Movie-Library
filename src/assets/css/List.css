@@ -2,7 +2,12 @@
     margin: 0px;
 }
 
-@media(max-width: 400px) {
+.cardStyle {
+    text-decoration: none;
+    color: black;
+}
+
+@media(max-width: 800px) {
     .welcomeTextContainer{
         width: 100%;
         margin-bottom: 0;

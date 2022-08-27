@@ -5,7 +5,7 @@ import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 
 function NowPlaying() {
-    const { data: movies, isError,error, isLoading } = useQuery('genre', tmdbAPI.getNowPlaying)
+    const { data: movies, isError,error, isLoading } = useQuery('nowPlaying', tmdbAPI.getNowPlaying)
     console.log("data", movies)
   return (
     <>
