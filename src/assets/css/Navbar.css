@@ -1,5 +1,11 @@
+html{
+    max-width: 100%;
+}
+
+
 .navBg {
     background-color: #0080FF;
+    margin-bottom: 50px;
 }
 
 .source {

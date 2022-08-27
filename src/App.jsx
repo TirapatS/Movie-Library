@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
+import Navigation from './components/Navbar'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import GenrePage from './pages/GenrePage'
 import PopularMoviesPage from './pages/PopularMoviesPage'
-import Navigation from './components/Navbar'
+
 
 
 
