@@ -10,13 +10,13 @@ const Pagination = ({data, page, isPreviousData, onPrevPage, onNextPage}) => {
             <div className="mt-3 paginationContainer">
 
                 <Button className="pageButton"
-                    disabled={ isPreviousData || page === 1}
+                    disabled={isPreviousData || page === 1}
                     onClick={onPrevPage}
                 >
                     <p>Prev</p>
                 </Button>
 
-                <div>
+                <div className="pageInfo">
                     <h3>Page: {page} / {data.total_pages} </h3>
                 </div>
 
