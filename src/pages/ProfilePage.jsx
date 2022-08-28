@@ -8,7 +8,9 @@ import { useQuery } from 'react-query'
 
 function ProfilePage() {
 
+    /* get id from params */
     const { id } = useParams()
+    /* search for clicked people with getProfile function and return */
     const {data: people, error, isError, isLoading } = useQuery(['people', id], () => tmdbAPI.getProfile(id))
     
     return (

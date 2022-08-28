@@ -12,9 +12,9 @@ function DiscoverPage() {
   /* setSearchParams with value page : 1 */
   const [searchParams, setSearchParams] = useSearchParams({page : 1})
   const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
-  const {id} = useParams()
+  const { id } = useParams()
   
-  const { data: movies, isError, error, isLoading, isPreviousData } = useQuery(['discover', id,{page}], () => tmdbAPI.getDiscover(id), {keepPreviousData: true})
+  const { data: movies, isError, error, isLoading, isPreviousData } = useQuery(['discover', {id,page}], tmdbAPI.getDiscover, {keepPreviousData: true})
   console.log("data", movies)
 
 

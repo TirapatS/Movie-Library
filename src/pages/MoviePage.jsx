@@ -8,7 +8,9 @@ import { useQuery } from 'react-query'
 
 function MoviePage() {
   
+    /* Get id from params */
     const { id } = useParams()
+    /* search for clicked movie with getMovie function and return */
     const {data: movie, error, isError, isLoading } = useQuery(['movie', id], () => tmdbAPI.getMovie(id))
    
 

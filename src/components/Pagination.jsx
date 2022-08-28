@@ -17,7 +17,7 @@ const Pagination = ({data, page, isPreviousData, onPrevPage, onNextPage}) => {
                 </Button>
 
                 <div>
-                    <h3>Page: {page} /{/*  {data.total_pages} */} </h3>
+                    <h3>Page: {page} / {data.total_pages} </h3>
                 </div>
 
                 <Button className="pageButton"

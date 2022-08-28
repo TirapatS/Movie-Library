@@ -46,9 +46,9 @@ const getGenres = async () => {
 }
 
 /* Get a list of movies based on Genre ID */
-const getDiscover = async ({ queryKey }, id) => {
-    const [_key, {page}] = queryKey
-    return await get("discover/movie" + API_ACCESS + `&with_genres=${id}` + "&include_adult=false" `&page=${page}`)
+const getDiscover = async ({ queryKey }) => {
+    const [_key, { page, id }] = queryKey
+    return await get("discover/movie" + API_ACCESS + `&with_genres=${id}` + "&include_adult=false" + `&page=${page}`)
 }
 
 /* get a movie */
