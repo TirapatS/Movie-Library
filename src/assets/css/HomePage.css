@@ -1,13 +1,4 @@
 .welcomeTextContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    padding-top:10px;
-    padding-bottom:10px;
-    border-radius: 15px;
-}
-
-.textStyle {
     text-align: center;
-    margin: 0px;
+    border-radius: 15px;
 }

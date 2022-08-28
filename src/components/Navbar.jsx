@@ -30,7 +30,7 @@ const Navigation = () => {
                   <NavDropdown title="Peoples" id="collasible-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/popular-peoples">Popular Peoples</NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link as={Link} to="/genre">Genres</Nav.Link>
+                  <Nav.Link as={Link} to="/genre">Genres</Nav.Link> 
                 </Nav>
               </Navbar.Collapse>
             </Container>

@@ -2,22 +2,39 @@ import Container from 'react-bootstrap/Container'
 import { Link }  from 'react-router-dom'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function HomePage() {
   
   return (
       <Container>
-        <Row md={3} xs={1} className="justify-content-center">
+        <Row md={2} xs={1} className="">
           <div className="my-5 welcomeTextContainer">
-            <h3 className="textStyle">Discover Movies</h3>
-            <Button variant="primary" className="textStyle my-3 myLink" as={Link} to="/now-playing">Now Playing</Button>
-            <Button variant="primary" className="textStyle my-3 myLink" as={Link} to="/popular-movies">Popular Movies</Button>
-            <Button variant="primary" className="textStyle my-3 myLink" as={Link} to="/top-rated-movies">Top Rated Movies</Button>
+            <Dropdown>
+              <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                <h1>Discover Movies</h1>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to="/now-playing"><h5 className="py-2">Now Playing</h5>
+                </Dropdown.Item>
+                <Dropdown.Item className="my-3" as={Link} to="/popular-movies"><h5 className="py-2">Popular Movies</h5>
+                </Dropdown.Item>
+                <Dropdown.Item className="my-3" as={Link} to="/top-rated-movies"><h5 className="py-2">Top Rated Movies</h5>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
 
           <div className="my-5 welcomeTextContainer">
-            <h3 className="textStyle">Discover Peoples</h3>
-            <Button variant="primary" className="textStyle my-3 myLink" as={Link} to="/popular-peoples">Popular Peoples</Button>
+          <Dropdown>
+              <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                <h1>Discover Peoples</h1>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item className="my-3" as={Link} to="/popular-peoples"><h5 className="py-2">Popular Peoples</h5>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </Row>
       </Container>
