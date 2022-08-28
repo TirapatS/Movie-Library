@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 import Pagination from '../components/Pagination'
+import Spinner from '../components/LoadingSpinner'
 
 function PopularMoviesPage() {
   
@@ -17,11 +18,11 @@ function PopularMoviesPage() {
     <>
        <Container className="mb-5">
         <h2>Popular Movies</h2>
-        </Container>
+        
+        {isLoading &&  <h2 className="my-5 text-center">Loading <Spinner/></h2>}
 
-      {isLoading && (<p>Loading...</p>)}
-
-      {isError && (<p>Error has occurred: {error}</p>)}
+        {isError && (<p>Error has occurred: {error}</p>)}
+      </Container>
       
       {movies && <MovieList data={movies} />}
 

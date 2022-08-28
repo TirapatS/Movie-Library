@@ -23,6 +23,7 @@ function NowPlaying() {
 
         {isError && (<p>Error has occurred: {error}</p>)}
       </Container>
+      
       {movies && <MovieList data={movies} />}
 
       {movies && <Pagination 

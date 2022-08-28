@@ -5,6 +5,7 @@ import '../assets/css/singularPage.css'
 import tmdbAPI from '../services/tmdbAPI'
 import {Link, useParams} from 'react-router-dom'
 import { useQuery } from 'react-query'
+import Spinner from '../components/LoadingSpinner'
 
 function ProfilePage() {
 
@@ -15,9 +16,11 @@ function ProfilePage() {
     
     return (
         <>
-            {isLoading && (<h6>Loading</h6>)}
+             <Container>
+                {isLoading &&  <h2 className="my-5 text-center">Loading <Spinner/></h2>}
 
-            {isError && (<h6>{error}</h6>)}
+                {isError && (<p>Error has occurred: {error}</p>)}
+            </Container>
 
             {/* if true, display the person */}
             {people && 

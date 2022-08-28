@@ -5,6 +5,7 @@ import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
 import {useParams, useSearchParams} from 'react-router-dom'
 import Pagination from '../components/Pagination'
+import Spinner from '../components/LoadingSpinner'
 
 
 function DiscoverPage() {
@@ -22,22 +23,25 @@ function DiscoverPage() {
     <>
       <Container className="mb-5">
         <h2>Discover Movies</h2>
+      
+        {isLoading && <h2 className="my-5 text-center">Loading <Spinner/></h2>}
+
+        {isError && (<p>Error has occurred: {error}</p>)}
       </Container>
 
-      {isLoading && (<p>Loading...</p>)}
-
-      {isError && (<p>Error has occurred: {error}</p>)}
-      
       {/* if true, send data to component */}
       {movies && <MovieList data={movies} />}
 
+      {movies && 
+      
       <Pagination
           data={movies}
           page={page}
           isPreviousData={isPreviousData}
           onPrevPage={() => setSearchParams({ page: page - 1})}
           onNextPage={() => setSearchParams({ page: page + 1})}
-      />
+      />}
+
     </>
   )
 }

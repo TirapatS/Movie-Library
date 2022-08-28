@@ -6,11 +6,11 @@ const Pagination = ({data, page, isPreviousData, onPrevPage, onNextPage}) => {
 
   return ( 
     <>
-        <Container className="my-5 pb-5">
+        <Container className="my-5">
             <div className="mt-3 paginationContainer">
 
                 <Button className="pageButton"
-                    disabled={isPreviousData && page === 1}
+                    disabled={ isPreviousData || page === 1}
                     onClick={onPrevPage}
                 >
                     <p>Prev</p>
@@ -21,7 +21,7 @@ const Pagination = ({data, page, isPreviousData, onPrevPage, onNextPage}) => {
                 </div>
 
                 <Button className="pageButton"
-                    disabled={isPreviousData && page !== data.total_pages}
+                    disabled={isPreviousData || page === data.total_pages}
                     onClick={onNextPage}
                 >
                     <p>Next</p>
