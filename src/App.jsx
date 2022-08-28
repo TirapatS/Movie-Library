@@ -11,6 +11,8 @@ import PopularPeoplePage from './pages/PopularPeoplePage'
 import MoviePage from './pages/MoviePage'
 import ProfilePage from './pages/ProfilePage'
 import DiscoverPage from './pages/DiscoverPage'
+import './assets/css/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (

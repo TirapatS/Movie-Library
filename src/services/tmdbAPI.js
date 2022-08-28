@@ -17,22 +17,26 @@ const getImage = (endpoint) => {
 
 
 /* get list of now playing movies */
-const getNowPlaying = async (page) => {
+const getNowPlaying = async ({ queryKey }) => {
+    const [_key, {page}] = queryKey
     return get('movie/now_playing' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* get list of popular movies */
-const getPopularMovies = async (page) => {
+const getPopularMovies = async ({ queryKey }) => {
+    const [_key, {page}] = queryKey
     return await get('movie/popular' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* get list of top rated movies */
-const getTopRatedMovies = async (page) => {
+const getTopRatedMovies = async ({ queryKey }) => {
+    const [_key, {page}] = queryKey
     return get('movie/top_rated' + API_ACCESS + "&include_adult=false" + `&page=${page}`)
 }
 
 /* Get list popular peoples */
-const getPopularPeoples = async (page) => {
+const getPopularPeoples = async ({ queryKey }) => {
+    const [_key, {page}] = queryKey
     return get('person/popular' + API_ACCESS + `&page=${page}`)
 }
 
@@ -42,8 +46,9 @@ const getGenres = async () => {
 }
 
 /* Get a list of movies based on Genre ID */
-const getDiscover = async (id) => {
-    return await get("discover/movie" + API_ACCESS + `&with_genres=${id}` + "&include_adult=false")
+const getDiscover = async ({ queryKey }, id) => {
+    const [_key, {page}] = queryKey
+    return await get("discover/movie" + API_ACCESS + `&with_genres=${id}` + "&include_adult=false" `&page=${page}`)
 }
 
 /* get a movie */

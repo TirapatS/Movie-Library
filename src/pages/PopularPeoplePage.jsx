@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import {useState} from 'react'
+import {useSearchParams} from 'react-router-dom'
 import '../assets/css/HomePage.css'
 import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
@@ -8,9 +8,11 @@ import Pagination from '../components/Pagination'
 
 function PopularPeoplePage() {
   
-  const [activePage, setActivePage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams({page : 1})
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
 
-  const { data: peoples, isError,error, isLoading } = useQuery(['popularPeoples', activePage], () => tmdbAPI.getPopularPeoples(activePage))
+  const { data: peoples, isError,error, isLoading, isPreviousData } = useQuery(['popularPeoples', {page}], tmdbAPI.getPopularPeoples, {keepPreviousData: true})
+  console.log("data", peoples)
 
   return (
     <>
@@ -27,8 +29,10 @@ function PopularPeoplePage() {
 
       {peoples && <Pagination 
         data={peoples} 
-        activePage={activePage} 
-        setActivePage={setActivePage}
+        page={page}
+        isPreviousData={isPreviousData}
+        onPrevPage={() => setSearchParams({ page: page - 1})}
+        onNextPage={() => setSearchParams({ page: page + 1})}
       />}
     </>
   )

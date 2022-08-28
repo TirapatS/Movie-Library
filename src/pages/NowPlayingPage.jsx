@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query'
 import {useState} from 'react'
+import {useSearchParams} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import '../assets/css/HomePage.css'
 import tmdbAPI from '../services/tmdbAPI'
@@ -8,9 +9,10 @@ import Pagination from '../components/Pagination'
 
 function NowPlaying() {
 
-  const [activePage, setActivePage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams({page : 1})
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
 
-  const { data: movies, isError, error, isLoading} = useQuery(['nowPlaying', activePage], () => tmdbAPI.getNowPlaying(activePage))
+  const { data: movies, isError, error, isLoading, isPreviousData} = useQuery(['nowPlaying', {page}], tmdbAPI.getNowPlaying, {keepPreviousData: true})
 
   return (
     <>
@@ -25,9 +27,11 @@ function NowPlaying() {
       {movies && <MovieList data={movies} />}
 
       {movies && <Pagination 
-        data={movies} 
-        activePage={activePage} 
-        setActivePage={setActivePage}
+        data={movies}
+        page={page}
+        isPreviousData={isPreviousData}
+        onPrevPage={() => setSearchParams({ page: page - 1})}
+				onNextPage={() => setSearchParams({ page: page + 1})}
       />}
     </>
   )

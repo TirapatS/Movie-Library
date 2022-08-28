@@ -3,12 +3,20 @@ import Container from 'react-bootstrap/Container'
 import '../assets/css/HomePage.css'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
-import {useParams} from 'react-router-dom'
+import {useParams, useSearchParams} from 'react-router-dom'
 import Pagination from '../components/Pagination'
 
+
 function DiscoverPage() {
-  const { id } = useParams()
-  const { data: movies, isError, error, isLoading } = useQuery(['discover', id], () => tmdbAPI.getDiscover(id))
+
+  /* setSearchParams with value page : 1 */
+  const [searchParams, setSearchParams] = useSearchParams({page : 1})
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
+  const {id} = useParams()
+  
+  const { data: movies, isError, error, isLoading, isPreviousData } = useQuery(['discover', id,{page}], () => tmdbAPI.getDiscover(id), {keepPreviousData: true})
+  console.log("data", movies)
+
 
   return (
     <>
@@ -23,7 +31,13 @@ function DiscoverPage() {
       {/* if true, send data to component */}
       {movies && <MovieList data={movies} />}
 
-      <Pagination/>
+      <Pagination
+          data={movies}
+          page={page}
+          isPreviousData={isPreviousData}
+          onPrevPage={() => setSearchParams({ page: page - 1})}
+          onNextPage={() => setSearchParams({ page: page + 1})}
+      />
     </>
   )
 }

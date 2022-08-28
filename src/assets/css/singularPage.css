@@ -11,8 +11,8 @@
     padding: 20px;
 }
 
-.imageContainer {
-    width: 50%;
+.infoContainer {
+    width: 70%;
 }
 
 .imgStyle {
@@ -58,11 +58,12 @@
     }
 
     .imgStyle {
-        width: 200%;
+        width: 100%;
     }
 
     .infoContainer {
         margin-top: 20px;
+        width: 100%;
     }
 
     .Info {

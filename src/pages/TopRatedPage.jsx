@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import '../assets/css/HomePage.css'
-import {useState} from 'react'
+import {useSearchParams} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import tmdbAPI from '../services/tmdbAPI'
 import MovieList from '../components/MovieList'
@@ -8,9 +8,10 @@ import Pagination from '../components/Pagination'
 
 function TopRatedPage() {
 
-  const [activePage, setActivePage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams({page : 1})
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
 
-  const { data: movies, isError,error, isLoading } = useQuery(['topRated', activePage], () => tmdbAPI.getTopRatedMovies(activePage))
+  const { data: movies, isError,error, isLoading, isPreviousData } = useQuery(['topRated', {page}],tmdbAPI.getTopRatedMovies, {keepPreviousData: true})
 
   return (
     <>
@@ -26,8 +27,10 @@ function TopRatedPage() {
 
       {movies && <Pagination 
         data={movies} 
-        activePage={activePage} 
-        setActivePage={setActivePage}
+        page={page}
+        isPreviousData={isPreviousData}
+        onPrevPage={() => setSearchParams({ page: page - 1})}
+        onNextPage={() => setSearchParams({ page: page + 1})}
       />}
     </>
   )

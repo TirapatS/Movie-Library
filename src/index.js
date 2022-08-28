@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import App from './App';
-import './assets/css/App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
 			refetchOnWindowFocus: false,
+			staleTime: 1000 * 60 * 5
 		}
 	}
 })
@@ -22,6 +22,7 @@ root.render(
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
+			<ReactQueryDevtools/>
 		</QueryClientProvider>
   </React.StrictMode>
 );

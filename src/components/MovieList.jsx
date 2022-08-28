@@ -11,8 +11,6 @@ const MovieList = ({data}) => {
     return <p>No Movies to be found</p>
   }
 
-  console.log("data", data)
-
   return (
     <>
       <Row xs={2} md={6} className="g-1 justify-content-center">

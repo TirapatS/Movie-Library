@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import '../assets/css/List.css'
 
-const Pagination = ({data, activePage, setActivePage}) => {
+const Pagination = ({data, page, isPreviousData, onPrevPage, onNextPage}) => {
 
   return ( 
     <>
@@ -10,19 +10,19 @@ const Pagination = ({data, activePage, setActivePage}) => {
             <div className="mt-3 paginationContainer">
 
                 <Button className="pageButton"
-                    disabled={activePage === 1}
-                    onClick={() => activePage !== 1 && setActivePage((page) => page - 1)}
+                    disabled={isPreviousData && page === 1}
+                    onClick={onPrevPage}
                 >
                     <p>Prev</p>
                 </Button>
 
                 <div>
-                    <h3>Page: {activePage} / {data.total_pages}</h3>
+                    <h3>Page: {page} /{/*  {data.total_pages} */} </h3>
                 </div>
 
                 <Button className="pageButton"
-                    disabled={activePage === data.total_pages}
-                    onClick={() => activePage !== data.total_pages && setActivePage((page) => page + 1)}
+                    disabled={isPreviousData && page !== data.total_pages}
+                    onClick={onNextPage}
                 >
                     <p>Next</p>
                 </Button>
