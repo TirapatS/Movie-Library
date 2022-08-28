@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container'
 import { Link }  from 'react-router-dom'
 import Row from 'react-bootstrap/Row'
-import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 function HomePage() {

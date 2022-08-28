@@ -3,7 +3,7 @@ import tmdbAPI from '../services/tmdbAPI'
 import { useQuery } from 'react-query'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Spinner from '../components/LoadingSpinner'
 

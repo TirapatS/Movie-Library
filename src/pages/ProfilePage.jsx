@@ -27,7 +27,7 @@ function ProfilePage() {
              <Container className="cardContainer">
                     <div className="Card">
                         <div className="imageContainer">
-                            <img className="imgStyle" src={tmdbAPI.getImage(people.profile_path)} />
+                            <img className="imgStyle" src={tmdbAPI.getImage(people.profile_path)} alt={people.name} />
                         </div>
                         <div className="infoContainer">
                             <h3>{people.name}</h3>
