@@ -1,5 +1,7 @@
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Link } from 'react-router-dom'
@@ -31,6 +33,15 @@ const Navigation = () => {
                     <NavDropdown.Item as={Link} to="/popular-peoples">Popular Peoples</NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link as={Link} to="/genre">Genres</Nav.Link>
+                  <Form className="d-flex formStyle">
+                  <Form.Control
+                    type="search"
+                    placeholder="Movie"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button variant="danger">Search</Button>
+                </Form>
                 </Nav>
               </Navbar.Collapse>
             </Container>
